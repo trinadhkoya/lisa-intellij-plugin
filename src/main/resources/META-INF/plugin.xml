@@ -9,7 +9,15 @@
     <resource-bundle>messages.MyBundle</resource-bundle>
 
     <extensions defaultExtensionNs="com.intellij">
-        <toolWindow factoryClass="com.github.trinadhkoya.lisaintellijplugin.toolWindow.MyToolWindowFactory" id="MyToolWindow"/>
-        <postStartupActivity implementation="com.github.trinadhkoya.lisaintellijplugin.startup.MyProjectActivity" />
+        <platform.lsp.serverSupportProvider implementation="com.github.trinadhkoya.LisaLspServerSupportProvider"/>
     </extensions>
+
+    <actions>
+        <group id="LisaActions" text="LISA" popup="true">
+            <add-to-group group-id="ToolsMenu" anchor="last"/>
+            <action id="Lisa.Execute" class="com.github.trinadhkoya.actions.LisaExecuteAction"
+                    text="Execute LISA Command" description="Run natural language commands via LISA"/>
+        </group>
+    </actions>
+
 </idea-plugin>
